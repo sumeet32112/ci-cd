@@ -1,17 +1,27 @@
-# ---- Stage 1: Build ----
-FROM maven:3.9.6-eclipse-temurin-21 AS build
+# ---- Stage 1: Build Angular ----
+FROM node:20-alpine AS build
 
 WORKDIR /app
-COPY pom.xml .
-COPY src ./src
-RUN mvn clean package -DskipTests
+COPY package*.json ./
 
-# ---- Stage 2: Run ----
-FROM eclipse-temurin:21-jre-alpine
+# Install exact deps from lockfile (best for CI/CD)
+RUN npm ci --legacy-peer-deps
 
-WORKDIR /app
+# Copy source and build Angular
+COPY . .
+RUN npm run build --prod
 
-COPY --from=build /app/target/recipes-api-*.jar app.jar
+# ---- Stage 2: Nginx for serving Angular ----
+FROM nginx:alpine
 
-EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "app.jar"]
+# Remove default nginx static content
+RUN rm -rf /usr/share/nginx/html/*
+
+# Copy Angular dist files
+COPY --from=build /app/dist/recipes-ui /usr/share/nginx/html
+
+# Copy custom nginx config (if needed)
+# COPY nginx.conf /etc/nginx/conf.d/default.conf
+
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
