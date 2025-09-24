@@ -1,0 +1,14 @@
+<div class="card">
+  <div class="image">
+    <img [src]="recipe.image || 'assets/placeholder.png'" [alt]="recipe.name" loading="lazy" />
+  </div>
+  <div class="body">
+    <h3 class="title">{{ recipe.name }}</h3>
+    <p class="meta">{{ recipe.cuisine }} • {{ recipe.difficulty }} • {{ recipe.servings }} servings</p>
+    <p class="time">Cook: {{ recipe.cookTimeMinutes ?? 'N/A' }} min • Prep: {{ recipe.prepTimeMinutes ?? 'N/A' }} min</p>
+    <div class="tags">
+      <span class="tag" *ngFor="let t of recipe.tags">{{ t }}</span>
+    </div>
+    <div class="rating">⭐ {{ recipe.rating ?? '—' }}</div>
+  </div>
+</div>

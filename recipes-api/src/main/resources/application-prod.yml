@@ -1,0 +1,16 @@
+spring:
+  h2:
+    console:
+      enabled: false
+
+  jpa:
+    show-sql: false
+    hibernate:
+      ddl-auto: validate
+
+logging:
+  level:
+    com.example.recipeapi: INFO
+    org.springframework.web: WARN
+  file:
+    name: /var/log/recipe-api/application.log

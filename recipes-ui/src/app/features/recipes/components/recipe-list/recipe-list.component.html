@@ -1,0 +1,28 @@
+<div class="container">
+  <app-search-bar (search)="onSearch($event)"></app-search-bar>
+
+  <!-- Load button -->
+  <div class="load-section">
+    <button (click)="loadRecipes()" [disabled]="loadingLoad">Load Recipes</button>
+    <span *ngIf="loadMessage" class="status">{{ loadMessage }}</span>
+  </div>
+
+  <div class="controls" *ngIf="!loading && totalResults !== null">
+    <!-- existing sort/filter UI -->
+  </div>
+
+  <div class="status" *ngIf="loading">Loading...</div>
+  <div class="status" *ngIf="!loading && totalResults !== null">{{ totalResults }} result(s)</div>
+
+  <div class="grid">
+    <app-recipe-card *ngFor="let r of pageItems" [recipe]="r"></app-recipe-card>
+  </div>
+
+  <div class="no-results" *ngIf="!loading && displayed.length === 0">No results</div>
+
+  <div class="pagination" *ngIf="displayed.length">
+    <button (click)="prevPage()" [disabled]="pageIndex===0">‹ Prev</button>
+    <span>Page {{pageIndex+1}} of {{totalPages}}</span>
+    <button (click)="nextPage()" [disabled]="pageIndex+1>=totalPages">Next ›</button>
+  </div>
+</div>

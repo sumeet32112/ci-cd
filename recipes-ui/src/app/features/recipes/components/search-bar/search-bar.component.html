@@ -1,0 +1,10 @@
+<div class="search-root">
+  <input
+    class="search-input"
+    type="text"
+    placeholder="Search recipes by name or cuisine..."
+    [(ngModel)]="query"
+    (keyup.enter)="onSearch()"
+    aria-label="Search recipes" />
+  <button class="search-btn" (click)="onSearch()" [disabled]="!query || query.trim().length < 3">🔍</button>
+</div>

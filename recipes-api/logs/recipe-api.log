@@ -1,0 +1,32 @@
+2025-09-20 09:50:26 [main] INFO  c.r.r.c.RecipeControllerTest - Starting RecipeControllerTest using Java 21.0.1 with PID 21192 (started by Sumeet in D:\recipes\backend\recipes-api)
+2025-09-20 09:50:26 [main] INFO  c.r.r.c.RecipeControllerTest - The following 1 profile is active: "dev"
+2025-09-20 09:50:26 [main] DEBUG o.s.w.c.s.GenericWebApplicationContext - Refreshing org.springframework.web.context.support.GenericWebApplicationContext@1ecfcbc9
+2025-09-20 09:50:28 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - 6 mappings in 'requestMappingHandlerMapping'
+2025-09-20 09:50:28 [main] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2025-09-20 09:50:29 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2025-09-20 09:50:29 [main] DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2025-09-20 09:50:29 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+2025-09-20 09:50:29 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+2025-09-20 09:50:29 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 1 ms
+2025-09-20 09:50:29 [main] INFO  c.r.r.c.RecipeControllerTest - Started RecipeControllerTest in 3.604 seconds (process running for 5.453)
+2025-09-20 09:50:29 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.recipes.recipes_api.controller.RecipeController#getRecipeById(Long)
+2025-09-20 09:50:29 [main] INFO  c.r.r.controller.RecipeController - Received request to get recipe by ID: 1
+2025-09-20 09:50:29 [main] INFO  c.r.r.controller.RecipeController - Successfully found recipe: Test Recipe
+2025-09-20 09:50:29 [main] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/yaml]
+2025-09-20 09:50:29 [main] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [RecipeDTO(id=1, name=Test Recipe, ingredients=null, instructions=null, prepTimeMinutes=15, cookTimeM (truncated)...]
+2025-09-20 09:50:29 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.recipes.recipes_api.controller.RecipeController#searchRecipes(String, int, int, String, String)
+2025-09-20 09:50:29 [main] INFO  c.r.r.controller.RecipeController - Received search request: query='pizza', page=0, size=10
+2025-09-20 09:50:29 [main] INFO  c.r.r.controller.RecipeController - Returning 1 recipes out of 1 total
+2025-09-20 09:50:29 [main] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/yaml]
+2025-09-20 09:50:29 [main] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [PagedResponse(content=[RecipeDTO(id=1, name=Test Recipe, ingredients=null, instructions=null, prepTi (truncated)...]
+2025-09-20 09:50:29 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.recipes.recipes_api.controller.RecipeController#loadRecipes()
+2025-09-20 09:50:29 [main] INFO  c.r.r.controller.RecipeController - Received request to load recipes from external API
+2025-09-20 09:50:29 [main] INFO  c.r.r.controller.RecipeController - Successfully loaded 5 recipes
+2025-09-20 09:50:29 [main] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/yaml]
+2025-09-20 09:50:29 [main] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [{message=Recipes loaded successfully, loadedCount=5, status=success}]
+2025-09-20 09:50:29 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.recipes.recipes_api.controller.RecipeController#getAllRecipes(int, int, String, String)
+2025-09-20 09:50:29 [main] INFO  c.r.r.controller.RecipeController - Received request to get all recipes: page=0, size=10
+2025-09-20 09:50:29 [main] INFO  c.r.r.controller.RecipeController - Returning 1 recipes out of 1 total
+2025-09-20 09:50:29 [main] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/yaml]
+2025-09-20 09:50:29 [main] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [PagedResponse(content=[RecipeDTO(id=1, name=Test Recipe, ingredients=null, instructions=null, prepTi (truncated)...]
+2025-09-20 09:50:29 [SpringApplicationShutdownHook] DEBUG o.s.w.c.s.GenericWebApplicationContext - Closing org.springframework.web.context.support.GenericWebApplicationContext@1ecfcbc9, started on Sat Sep 20 09:50:26 IST 2025

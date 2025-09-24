@@ -1,0 +1,73 @@
+spring:
+  application:
+    name: recipe-management-api
+
+  profiles:
+    active: dev
+
+  # H2 Database Configuration
+  datasource:
+    url: jdbc:h2:mem:recipedb
+    driverClassName: org.h2.Driver
+    username: sa
+    password: password
+
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+  # JPA Configuration
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+        use_sql_comments: true
+
+  # Jackson Configuration
+  jackson:
+    property-naming-strategy: SNAKE_CASE
+    default-property-inclusion: NON_NULL
+
+# External API Configuration
+external:
+  api:
+    recipes:
+      url: https://dummyjson.com/recipes
+
+# Server Configuration
+server:
+  port: 8080
+
+# Management/Actuator Configuration
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      show-details: always
+
+# Logging Configuration
+logging:
+  level:
+    com.example.recipeapi: DEBUG
+    org.springframework.web: INFO
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+  file:
+    name: logs/recipe-api.log
+
+# Custom Application Properties
+app:
+  search:
+    default-page-size: 10
+    max-page-size: 100
