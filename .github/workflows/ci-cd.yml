@@ -41,7 +41,7 @@ jobs:
           ./mvnw jacoco:report  # Generate test coverage report
 
       - name: Upload test results
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         if: always()  # Upload even if tests fail
         with:
           name: backend-test-results
@@ -78,7 +78,7 @@ jobs:
         run: npm run build --prod
 
       - name: Upload build artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: frontend-dist
           path: recipes-ui/dist/
